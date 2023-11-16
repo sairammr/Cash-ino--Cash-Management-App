@@ -5,8 +5,6 @@ import 'package:cashino/pages/addpage.dart';
 import 'package:cashino/pages/learnpage.dart';
 import 'package:cashino/components/navbar.dart';
 
-
-
 void main() {
   runApp(MyApp());
 }
@@ -20,7 +18,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int currentIndex = 0 ;
-
   final pages =[
     homepage(),
     addpage(),
@@ -30,7 +27,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return  MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: pages[currentIndex],

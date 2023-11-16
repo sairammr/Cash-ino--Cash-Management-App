@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, camel_case_types
 
 
 
 
+import 'package:cashino/utils/sendtxt.dart';
 import 'package:cashino/utils/cropper.dart';
 import 'package:cashino/utils/picker.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import 'package:image_picker/image_picker.dart';
 class addpage extends StatefulWidget {
   final InputImage inputImage = InputImage.fromFilePath("");
+  
 
    addpage({super.key});
 
@@ -19,6 +21,7 @@ class addpage extends StatefulWidget {
 }
 
 class __addpageState extends State<addpage> {
+
 
 
   @override
@@ -60,28 +63,29 @@ class __addpageState extends State<addpage> {
 
         RecognizedText recognizedText= await textRecognizer.processImage(inputImage);
         print(recognizedText.text);
-
-              });
+        });
              
 
             
           }});
          },
          onGallerytap: (){  pickImage(source: ImageSource.gallery).then((value) {
-            if(value!=""){  
+            if(value!="" && value != null){  
               imageCropperPage(value, context).then((value) async {
-                
+                if (value != null) {
                   InputImage inputImage = InputImage.fromFilePath(value); 
                     final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
         try{
-        RecognizedText recognizedText= await textRecognizer.processImage(inputImage);
-        print(recognizedText.text);
+          RecognizedText recognizedText= await textRecognizer.processImage(inputImage);
+          print(recognizedText.text);
+          snedtxt(recognizedText.text);
+
         }
-catch(e){
-  print(e);
+        catch(e){
+           print(e);
 }
 
-              });
+              }});
             }
           });}
 );

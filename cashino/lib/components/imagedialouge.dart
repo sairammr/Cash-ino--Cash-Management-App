@@ -1,9 +1,10 @@
+import 'package:cashino/utils/textinput.dart';
 import 'package:flutter/material.dart';
 
 void imagePickerModal(BuildContext context,{VoidCallback? onCameratap, VoidCallback?onGallerytap}){
    showModalBottomSheet(context: context, builder: (context){
    return Container(
-    height: 190,
+    height: 260,
     decoration: const BoxDecoration(color:Color.fromARGB(255, 26, 26, 26) ),
     child: Column(
       children: [
@@ -43,6 +44,24 @@ void imagePickerModal(BuildContext context,{VoidCallback? onCameratap, VoidCallb
               child:const  Padding(
                 padding:  EdgeInsets.only(left:25.0,right: 25,top: 8,bottom: 8),
                 child: Center(child: Text("Upload image ",style:TextStyle(fontSize: 17,color:Color.fromARGB(255, 0, 0, 0), ) ,)),
+              ),
+         
+            ),
+                 ),
+         ),
+          const SizedBox(height: 15,),
+         GestureDetector(
+           onTap:(){
+            openTextDialog(context);
+           },
+           child: Card(
+            child: Container(
+              width: 175,
+              height: 45,
+              decoration: BoxDecoration(color:Color.fromARGB(255, 101, 255, 77) ,borderRadius: BorderRadius.circular(5)),
+              child:const  Padding(
+                padding:  EdgeInsets.only(left:25.0,right: 25,top: 8,bottom: 8),
+                child: Center(child: Text("Enter text ",style:TextStyle(fontSize: 17,color:Color.fromARGB(255, 0, 0, 0), ) ,)),
               ),
          
             ),
