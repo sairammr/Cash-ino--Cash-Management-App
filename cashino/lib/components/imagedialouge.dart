@@ -52,7 +52,8 @@ void imagePickerModal(BuildContext context,{VoidCallback? onCameratap, VoidCallb
           const SizedBox(height: 15,),
          GestureDetector(
            onTap:(){
-            openTextDialog(context);
+            var textDiaglog = TextDiaglog();
+            textDiaglog.openTextDialog(context);
            },
            child: Card(
             child: Container(

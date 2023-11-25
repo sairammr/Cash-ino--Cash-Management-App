@@ -28,7 +28,7 @@ class _CurvedNavigationBarWidgetState extends State<CurvedNavigationBarWidget> {
        height:62,
           backgroundColor: Color.fromARGB(255, 0, 0, 0) ,
           animationDuration : const Duration(milliseconds: 200),
-          color: Color.fromARGB(255, 65, 65, 65),
+          color: Color.fromARGB(255, 37, 37, 37),
           items: [
           Icon(Icons.home,
           color:

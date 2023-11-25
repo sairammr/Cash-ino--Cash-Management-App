@@ -2,8 +2,11 @@
 
 
  
+import 'package:cashino/pages/addpage.dart';
 import 'package:flutter/material.dart';
-
+class TextDiaglog{
+final TextEditingController _firstFieldController = TextEditingController();
+  final TextEditingController _secondFieldController = TextEditingController();
 Future openTextDialog(BuildContext context) => showDialog(
   context: context, 
   builder: (context)=>  AlertDialog(
@@ -18,33 +21,35 @@ Future openTextDialog(BuildContext context) => showDialog(
       ),
       TextField(
         autofocus: true,
-        style: TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontSize: 17,),
-        
-        decoration: InputDecoration(hintText: "Enter Receiver details",
-        hintStyle: TextStyle(color: Color.fromARGB(255, 175, 175, 175)),
+        style: TextStyle(color: Color.fromRGBO(192, 192, 192, 1),fontSize: 17,),
+        controller: _firstFieldController,
+        decoration: InputDecoration(hintText: "Sent to/Received from",
+        hintStyle: TextStyle(fontWeight: FontWeight.w200,color: Color.fromARGB(255, 175, 175, 175)),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(255, 192, 192, 192),
-          width: 1)
+          borderSide: BorderSide(color: Color.fromARGB(140, 132, 132, 132),
+          width: 0.5)
         )
         ,focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(255, 192, 192, 192),
-          width: 1)
+          borderSide:BorderSide(color: Color.fromARGB(140, 132, 132, 132),
+          width: 0.5)
         )),
       ),
       SizedBox(
         height: 25,
       ),
       TextField(
+                controller: _secondFieldController,
+
                 style: TextStyle(color: Color.fromARGB(255, 192, 192, 192),fontSize: 17,),
 
-        decoration: InputDecoration(hintText: "Enter Amount",hintStyle: TextStyle(color: Color.fromARGB(255, 172, 172, 172)),
+        decoration: InputDecoration(hintText: "Enter Amount",hintStyle: TextStyle(fontWeight: FontWeight.w200,color: Color.fromARGB(255, 172, 172, 172)),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(255, 192, 192, 192),
-          width: 1)
+          borderSide: BorderSide(color: Color.fromARGB(140, 132, 132, 132),
+          width: 0.5)
         )
         ,focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(255, 192, 192, 192),
-          width: 1)
+          borderSide: BorderSide(color: Color.fromARGB(140, 132, 132, 132),
+          width: 0.5)
         )),
       ),
     ]),
@@ -62,5 +67,11 @@ Future openTextDialog(BuildContext context) => showDialog(
   ],
   ),);
   void submit (BuildContext context){
+    var _receiver  = _firstFieldController.text;
+    var _amount = _secondFieldController.text;
+    print(_amount +_receiver);
+    DataHandling.handleData(_receiver,_amount);
+    Navigator.of(context).pop();
     Navigator.of(context).pop();
   }
+}

@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   int currentIndex = 0 ;
   final pages =[
     homepage(),
-    addpage(),
+    AddAndActivityPage(),
      activity(),
      learnpage()
   ];
