@@ -26,10 +26,8 @@ class _ProfilePageState extends State<ProfilePage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    // Check if the route was popped from MonthlyGoalPage
     final route = ModalRoute.of(context);
     if (route != null && route is ModalRoute && route.isCurrent) {
-      // Get the result from MonthlyGoalPage
       final double? goal = route.settings.arguments as double?;
       if (goal != null) {
         _updateMonthlyGoal(goal);
